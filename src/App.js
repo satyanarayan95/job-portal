@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+
+import Home from './components/Home/Home';
+import Login from './components/login/Login';
+import PostFeed from './components/postedJob/PostFeed'
+import ForgotPassword from "./components/forgotpassword/ForgotPassword";
+import ResetPassword from "./components/resetpassword/ResetPassword";
+import Signup from "./components/signup/Signup";
+import ApplicantsModal from './components/ApplicantsModal/ApplicantsModal';
+import CreateJob from './components/createjob/CreateJob';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/signup" component={Signup}></Route>
+        <Route path="/resetpassword" component={ResetPassword}></Route>
+        <Route path="/forgotpassword" component={ForgotPassword}></Route>
+        <Route path="/createjob" component={CreateJob}></Route>
+        <Route path="/postfeed" component={PostFeed}></Route>
+        <Route path="/modal" component={ApplicantsModal}></Route>
+        <Route  exact path="/" component={Home}></Route>
+      </Switch>
+    </Router>
   );
 }
 
